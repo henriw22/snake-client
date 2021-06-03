@@ -29,6 +29,18 @@ const setupInput = function (conn) {
     // }
   };
 
+  const specialMessage = (key) => {
+    if (key === 'g') {
+      conn.write('Say: Go Go Go!');
+    } else if (key === 'h') {
+      conn.write('Say: Hello!');
+    } else if (key === 'j') {
+      conn.write('Say: Juked!');
+    }
+  };
+
+  stdin.on("data", specialMessage);
+
   stdin.on("data", handleUserInput);
 
   return stdin;
